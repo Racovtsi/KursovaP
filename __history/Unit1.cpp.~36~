@@ -1,0 +1,527 @@
+//----------------------------------------------------------------------------
+#include <vcl.h>
+#include <vector>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "Unit2.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+
+TForm1 *Form1;
+String form2open;
+extern std::vector<int>winSpin;  //extern, сделать видимым всей программе
+
+ //Функція вивода електронної формули атомів на Form2
+void __fastcall TForm1::OpenForma2(wchar_t efa[255])
+{
+ Form1->Visible = false;
+ Form2->Label1->Caption = "";
+ Form2->Label1->Caption = Form2->Label1->Caption+efa;
+ Form2->Show();
+ }
+
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b9");
+const int mass[] = {2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image2MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2");
+const int mass[] = {1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image3MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b9");
+const int mass[] = {1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Image4MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2");
+const int mass[] = {1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image5MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u00b9");
+const int mass[] = {1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image6MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u00b2");
+const int mass[] = {1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image7MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u00b3");
+const int mass[] = {1,1,2,2,2};    //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image8MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2074");
+const int mass[] = {1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Image9MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2075");
+const int mass[] = {1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image10MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076");
+const int mass[] = {1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image11MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b9");
+const int mass[] = {1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image12MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2");
+const int mass[] = {1,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//--------------------------------------------------------------------------
+void __fastcall TForm1::Image13MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u00b9");
+const int mass[] = {1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::n(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u00b2");
+const int mass[] = {1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image15MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u00b3");
+const int mass[] = {1,1,1,1,1,1,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image16MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2074");
+const int mass[] = {1,1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image17MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2075");
+const int mass[] = {1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image18MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076");
+const int mass[] = {1,1,1,1,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image19MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b9");
+const int mass[] = {1,1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image20MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//-------------------------------------------------------------------------
+void __fastcall TForm1::Image21MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image22MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b2");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image23MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b3");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image24MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b9 3d\u2075");
+const int mass[] = {1,1,1,1,1,1,1,1,1,2,2,2,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image25MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u2075");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,2,2,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image26MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u2076");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,2,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image27MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u2077");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image28MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u2078");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image29MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b9 3d\u00b9\u2070");
+const int mass[] = {1,1,1,1,1,1,1,1,1,2,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image30MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image31MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u00b9");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image32MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u00b2");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image33MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u00b3");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image34MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2074");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image35MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2075");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image36MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image37MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b9");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image38MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image39MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2 4d\u00b9");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image40MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2 4d\u00b2");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2}; //ok
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image41MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b9 4d\u2074");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image42MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b9 4d\u2075");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image43MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2 4d\u2075");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image44MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b9 4d\u2077");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image45MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b9 4d\u2078");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image46MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+		  int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u2070 4d\u00b9\u2070");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image47MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b9 4d\u00b9\u2070");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image48MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2 4d\u00b9\u2070");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image49MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2 4d\u00b9\u2070 5p\u00b9");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image50MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y)
+{
+OpenForma2(L"1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u00b9\u2070 4p\u2076 5s\u00b2 4d\u00b9\u2070 5p\u00b2");
+const int mass[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2};
+for(int i = 0; i<sizeof(mass)/sizeof(mass[0]);i++)
+winSpin.push_back(mass[i]);
+}
+//---------------------------------------------------------------------------
+
